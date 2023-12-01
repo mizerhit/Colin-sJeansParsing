@@ -34,15 +34,13 @@ class DataAccessObject:
         self.__instance.commit()
 
     def get_things(self):
-        self.__cursor.execute('''
-            SELECT thing FROM Things
-        ''')
+        self.__cursor.execute('SELECT thing FROM Things')
         return self.__cursor.fetchall()
-    
+
     def get_thing(self, name):
         self.__cursor.execute('SELECT * FROM Things WHERE thing = ?', (name,))
         return self.__cursor.fetchall()
-    
+
     def get_discount(self):
         self.__cursor.execute('SELECT * FROM Things ORDER BY discount DESC')
         return self.__cursor.fetchall()
