@@ -26,19 +26,3 @@ def UpdateData():
             database.save_thing(name, colour, price, discount)
     else:
         print(f"Faile, status code: {response.status_code}")
-
-
-UpdateData()
-
-names = {}
-thing_names = []
-
-for thing in database.get_things():
-    names[thing] = 1
-
-for name in names.keys():
-    thing_names.append(*name)
-
-# print(thing_names)
-# print(database.get_thing(thing_names[1]))
-print(database.get_discount())
