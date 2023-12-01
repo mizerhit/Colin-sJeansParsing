@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+  db-service:
+    container_name: db-service
+    build: 
+      context: ./backend/
+      dockerfile: Dockerfile
+
+  tg-service:
+    container_name: tg-service
+    build:
+      context: ./frontend/
+      dockerfile: Dockerfile
+    depends_on:
+      - db-service
